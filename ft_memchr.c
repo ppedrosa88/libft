@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/23 15:37:02 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/24 10:23:57 by ppedrosa         ###   ########.fr       */
+/*   Created: 2022/04/24 11:09:50 by ppedrosa          #+#    #+#             */
+/*   Updated: 2022/04/24 11:48:54 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*p;
+	unsigned char	*p;
+	unsigned char	*find;
 
-	p = (char *)s;
-	while (*p != c)
+	p = (unsigned char *)s;
+	find = NULL;
+	while ((s != '\0') && (n--))
 	{
-		if (*p == '\0')
-			return (NULL);
-		p++;
+		if (*p != (unsigned char)c)
+			p++;
+		else
+		{
+			find = p;
+			break ;
+		}
 	}
-	return (p);
+	return (find);
 }

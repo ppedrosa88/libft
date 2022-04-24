@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/23 15:37:02 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/24 10:23:57 by ppedrosa         ###   ########.fr       */
+/*   Created: 2022/04/24 10:58:14 by ppedrosa          #+#    #+#             */
+/*   Updated: 2022/04/24 11:08:11 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+int	strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*p;
+	size_t	i;
 
-	p = (char *)s;
-	while (*p != c)
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < n)
 	{
-		if (*p == '\0')
-			return (NULL);
-		p++;
+		if (i == n)
+			return (0);
+		i++;
 	}
-	return (p);
+	return (s1[i] - s2[i]);
 }

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/23 15:37:02 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/24 10:23:57 by ppedrosa         ###   ########.fr       */
+/*   Created: 2022/04/24 11:51:41 by ppedrosa          #+#    #+#             */
+/*   Updated: 2022/04/24 12:11:20 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*p;
+	char	*p1;
+	char	*p2;
 
-	p = (char *)s;
-	while (*p != c)
+	p1 = (char *)s1;
+	p2 = (char *)s2;
+	while (*p1 != '\0' && *p2 != '\0' && *p1 == *p2 && n--)
 	{
-		if (*p == '\0')
-			return (NULL);
-		p++;
+		if (n == 0)
+			return (0);
+		p1++;
+		p2++;
 	}
-	return (p);
+	return (*p1 - *p2);
 }
