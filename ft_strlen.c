@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppedrosa <ppedrosa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:25:59 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/20 20:16:09 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:09:06 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strlen(char *str)
 {

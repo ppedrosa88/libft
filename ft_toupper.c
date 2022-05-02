@@ -6,9 +6,11 @@
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 15:24:46 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/23 15:30:26 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:10:03 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {

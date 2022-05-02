@@ -6,9 +6,11 @@
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 10:58:14 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/24 11:08:11 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:09:15 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	strncmp(const char *s1, const char *s2, size_t n)
 {

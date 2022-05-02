@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppedrosa <ppedrosa@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:15:01 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/20 19:23:17 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:07:49 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

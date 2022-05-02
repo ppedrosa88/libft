@@ -6,9 +6,11 @@
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 15:10:15 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/23 15:23:49 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:06:41 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

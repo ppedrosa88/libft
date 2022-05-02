@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppedrosa <ppedrosa@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 18:11:44 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/04/30 18:11:44 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:08:38 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char    **ft_split(char const *s, char c)
 {
