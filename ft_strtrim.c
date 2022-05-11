@@ -6,31 +6,47 @@
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 09:22:36 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/05/02 13:13:40 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/11 20:21:36 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
+static int	ft_char_in_set(char c, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
 	char	*str;
+	size_t	i;
+	size_t	start;
+	size_t	end;
 
-	str = 0;
-	if (s1 != 0 && set != 0)
-	{
-		i = 0;
-		j = ft_strlen((char *)s1);
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) && j < i)
-			j--;
-		if (str)
-			ft_substr(s1, i, j - i + 1);
-	}
+	start = 0;
+	while (s1[start] && ft_char_in_set(s1[start], set))
+		start++;
+	end = ft_strlen((char *)s1);
+	while (end > start && ft_char_in_set(s1[end - 1], set))
+		end--;
+	str = (char *)malloc(sizeof(*s1) * (end - start + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (start < end)
+		str[i++] = s1[start++];
+	str[i] = 0;
 	return (str);
 }
 

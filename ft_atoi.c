@@ -6,33 +6,43 @@
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 15:10:15 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/05/02 13:06:41 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/11 20:12:42 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_limits(int r, int sig)
+{
+	if (sig == 1 && r < 0)
+		return (-1);
+	if (sig == -1 && r > 0)
+		return (0);
+	return (r);
+}
+
+int	ft_atoi(const char *str)
 {
 	int	i;
-	int	sign;
-	int	num;
+	int	r;
+	int	sig;
 
 	i = 0;
-	sign = 1;
-	num = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	sig = 1;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (nptr[i] == '-')
-			sign *= -1;
+		if (str[i] == '-')
+			sig = -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	r = 0;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		num = num * 10 + (nptr[i] - 48);
+		r = r * 10 + (str[i] - '0');
 		i++;
 	}
-	return (num * sign);
+	r *= sig;
+	return (ft_limits(r, sig));
 }
