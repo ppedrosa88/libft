@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 15:21:59 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/05/13 19:41:22 by ppedrosa         ###   ########.fr       */
+/*   Created: 2022/05/13 16:49:44 by ppedrosa          #+#    #+#             */
+/*   Updated: 2022/05/13 17:54:18 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	comp_len(const char *s, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	if (ft_strlen(s) >= len)
-		return (len);
-	else
-		return (ft_strlen(s));
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char			*cad;
 	unsigned int	i;
 
-	if (!s)
-		return (0);
-	if (ft_strlen(s) <= start)
-		return (ft_strdup(""));
-	cad = malloc(comp_len(s, len) + 1);
-	if (!cad)
-		return (0);
+	if (!s || !f)
+		return ;
 	i = 0;
-	while (i < len && s[start] != '\0')
+	while (s[i])
 	{
-		cad[i] = ((char *)s)[start];
+		f(i, &s[i]);
 		i++;
-		start++;
 	}
-	cad[i] = '\0';
-	return (cad);
 }

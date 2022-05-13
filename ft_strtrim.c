@@ -6,12 +6,11 @@
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 09:22:36 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/05/11 20:21:36 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/13 16:45:17 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_char_in_set(char c, char const *set)
 {
@@ -48,11 +47,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 		str[i++] = s1[start++];
 	str[i] = 0;
 	return (str);
-}
-
-int	main(void)
-{
-	printf("%s\n", ft_strtrim("abqbc", "abc"));
-	printf("%s\n", ft_strtrim("xavocadoyz", "xyz"));
-	return (0);
 }
