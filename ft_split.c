@@ -6,37 +6,37 @@
 /*   By: ppedrosa <ppedrosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 18:11:44 by ppedrosa          #+#    #+#             */
-/*   Updated: 2022/05/11 20:23:00 by ppedrosa         ###   ########.fr       */
+/*   Updated: 2022/05/15 11:27:06 by ppedrosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	cnt_words(char const *s, char c)
+int	many_words(char const *s, char c)
 
 {
 	int	i;
-	int	cnt;
-	int	wrd;
+	int	j;
+	int	word_nbr;
 
-	cnt = 0;
+	j = 0;
 	i = 0;
-	wrd = 0;
+	word_nbr = 0;
 	while (s[i])
 	{
-		if ((s[i] != c) && (wrd == 0))
+		if ((s[i] != c) && (word_nbr == 0))
 		{
-			wrd = 1;
-			cnt += 1;
+			word_nbr = 1;
+			j++;
 		}
 		else if (s[i] == c)
-			wrd = 0;
+			word_nbr = 0;
 		i++;
 	}
-	return (cnt);
+	return (j);
 }
 
-int	len_words(char *s, int *i, char c)
+int	word_length(char *s, int *i, char c)
 {
 	int	x;
 	int	y;
@@ -57,58 +57,58 @@ int	len_words(char *s, int *i, char c)
 
 int	wrt_words(char *s, char **p, int *i, char c)
 {
-	int		wrd_sz;
+	int		word_size;
 	int		j;
-	int		ip;
-	char	*pw;
+	int		k;
+	char	*word;
 
-	wrd_sz = len_words(s, i, c);
-	ip = 0;
-	while (wrd_sz != 0)
+	word_size = word_length(s, i, c);
+	k = 0;
+	while (word_size != 0)
 	{
-		pw = (char *)ft_calloc(sizeof(char), (wrd_sz + 1));
-		if (!pw)
+		word = (char *)ft_calloc(sizeof(char), (word_size + 1));
+		if (!word)
 			return (1);
 		j = 0;
-		while (j < wrd_sz)
+		while (j < word_size)
 		{
-			pw[j++] = s[*i];
+			word[j++] = s[*i];
 			*i += 1;
 		}
-		pw[j] = '\0';
-		p[ip] = pw;
-		ip++;
-		wrd_sz = len_words(s, i, c);
+		word[j] = '\0';
+		p[k] = word;
+		k++;
+		word_size = word_length(s, i, c);
 	}
-	p[ip] = NULL;
+	p[k] = NULL;
 	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		count;
-	char	**result;
+	char	**split_word;
 	int		i;
-	int		error;
+	int		no_word;
 
 	if (!s)
 		return (NULL);
-	count = cnt_words(s, c);
-	result = (char **)ft_calloc(sizeof(char *), count + 1);
-	if (!result)
+	count = many_words(s, c);
+	split_word = (char **)ft_calloc(sizeof(char *), count + 1);
+	if (!split_word)
 		return (NULL);
 	i = 0;
-	error = wrt_words((char *)s, result, &i, c);
-	if (error)
+	no_word = wrt_words((char *)s, split_word, &i, c);
+	if (no_word)
 	{
 		i = 0;
-		while (result[i])
+		while (split_word[i])
 		{
-			free(result[i]);
+			free(split_word[i]);
 			i++;
 		}
-		free(result);
+		free(split_word);
 		return (NULL);
 	}
-	return (result);
+	return (split_word);
 }
